@@ -8,5 +8,5 @@
 
 
 >3.（必做）画一张图，展示 Xmx、Xms、Xmn、Meta、DirectMemory、Xss 这些内存参数的关系。
->###### 操作步骤:
->1. [关系图](src/memory.png)
+>
+> [关系图](src/memory.png)
