@@ -7,29 +7,30 @@
 ```sql
 CREATE TABLE order_sale
 (
-  id                     BIGINT AUTO_INCREMENT
-  COMMENT '主键ID'
-    PRIMARY KEY,
-  order_no               VARCHAR(30)                         NULL
-  COMMENT '订单号',
-  status                 TINYINT                             NULL
-  COMMENT '订单状态,1-待审核,2-待确认，3-已拒绝，4-完成，5-已取消，6-配送中，7-已挂起，8-待支付，9-待配送，10-配送完成',
-  user_id                BIGINT                              NULL
-  COMMENT '下单用户ID',
-  pay_price              DECIMAL(16, 2)                      NULL
-  COMMENT '实际支付价格，单位分，实际支付价格=折后价-返利使用金额-信用额度使用金额',
-  total_discount_rate    DECIMAL(16, 2)                      NULL
-  COMMENT '订单总折扣率',
-  express_fee            DECIMAL(16, 2)                      NULL
-  COMMENT '快递费用，单位分',
-  real_create_user_id    BIGINT                              NULL
-  COMMENT '实际下单用户ID',
-  finish_time            DATETIME                            NULL
-  COMMENT '订单完成时间',
-  delete_status          TINYINT DEFAULT '2'                 NULL
-  COMMENT '删除状态，1-已删除，2-正常',
-  gmt_create             TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
-  gmt_modify             TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+    id                  BIGINT AUTO_INCREMENT
+        COMMENT '主键ID'
+        PRIMARY KEY,
+    order_no            VARCHAR(30) NULL
+        COMMENT '订单号',
+    status              TINYINT NULL
+        COMMENT '订单状态,1-待审核,2-待确认，3-已拒绝，4-完成，5-已取消，6-配送中，8-待支付，9-待配送，10-配送完成',
+    user_id             BIGINT NULL
+        COMMENT '下单用户ID',
+    pay_price           DECIMAL(16, 2) NULL
+        COMMENT '实际支付价格',
+    total_discount_rate DECIMAL(16, 2) NULL
+        COMMENT '订单总折扣率',
+    express_fee         DECIMAL(16, 2) NULL
+        COMMENT '快递费用，单位分',
+    real_create_user_id BIGINT NULL
+        COMMENT '实际下单用户ID',
+    finish_time         DATETIME NULL
+        COMMENT '订单完成时间',
+    delete_status       TINYINT   DEFAULT '2' NULL
+        COMMENT '删除状态，1-已删除，2-正常',
+    gmt_create          TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+    gmt_modify          TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP  
+)
   COMMENT '订单表'
   ENGINE = InnoDB;
 
